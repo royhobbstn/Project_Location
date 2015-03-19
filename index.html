@@ -1,8 +1,11 @@
 <html>
   <body>
+    
+    
     <!-- We'll need to include Google Maps, Handlebars for templating, and jQuery for general futzing about -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js"></script>
+    
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
     <!-- Tabletop.js for accessing Google Spreadsheets and Mapsheet.js for mapping, of course -->
@@ -19,7 +22,7 @@
         height: 100%;
       }
     </style>
-
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
     <!-- This is the popup you'll get when you click a marker. 
          {{these}} are columns in your spreadsheet 
       <img src="{{image}}">
@@ -43,7 +46,8 @@
         var map = Mapsheet({
           key: published_spreadsheet_url,
           element: "map",
-          popupTemplate: template
+          popupTemplate: template,
+          provider: Mapsheet.Providers.Leaflet
         });
       });
     </script>
